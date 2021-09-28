@@ -1,0 +1,78 @@
+body {
+    background-image: url('/wallpaper.png');
+    background-size: 400px;
+    position: relative;
+	font-family: asinastra,'Noto Sans', sans-serif;
+	font-size: 18px;
+	line-height: 1.4;
+	min-width: 320px;
+	overflow-x: hidden;
+	height: auto;
+}
+
+.navbar {
+    background-color: #292929;
+    background-size: 120px;
+    width: 100%;
+    height: 55px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+    color: rgb(242, 243, 244);
+    margin-bottom: 32px;
+}
+
+.navbar .container {
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-menu {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.navbar-menu li {
+    display: inline-block;
+}
+
+.navbar-menu li a {
+    display: inline-block;
+    color: rgb(242, 243, 244);
+    opacity: 0.9;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 20px;
+    transition: all .6s ease-in-out;
+    font-style: italic;
+}
+
+.navbar-wrap {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 40px;
+    text-decoration: none;
+    color: rgb(242, 243, 244);
+}
+
+.navbar-brand:hover {
+    color: greenyellow;
+}
+
+.navbar-menu a:hover {
+    color: #f44355;
+}
+
+p.yes:after { content: '\0xE2 0x9B 0xA7'; }
+
+.pentagram {
+    margin: 0;
+    color: red;
+    font-weight: bold;
+    font-size: 38px;
+}
