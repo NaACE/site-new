@@ -1,55 +1,72 @@
 <style>
-    @font-face {
-        font-family: "VCR OSD Mono";
-        src: url("/fonts/VCR OSD Mono.ttf");
+    body {
+        background-image: url(/site/wallpaper/games.png);
     }
 
-    .game {
-        background-color: #0d0c0b;
-        border-radius: 25px;
-        width: 320px;
-        height: 100%;
+    .product {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+        border: 0.1pc solid gray;
+        border-radius: 5px;
+        background-color: snow;
+        padding: 16px;
+    }
+
+    .product a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    .product small {
+        font-size: 17px;
+        color: coral;
+    }
+
+    .center h3 {
         text-align: center;
-        color: #fff;
-
-        font-family: "VCR OSD Mono", asinastra, Helvetica;
-        font-style: italic;
+        font-size: 32px;
     }
 
-    .game img {
-        border-radius: 10% 10% 0 0;
+
+    .image img {
+        margin-bottom: 10px;
+        border: 1px solid black;
     }
 
-    hr {
-        padding-bottom: 1px;
-        background-color: #9b9b9b;
-        border-bottom:1px solid #F4F4F4;
-        margin: 0 0 6px 0;
+    .image img {
+        height: 240px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 7px;
     }
 
-    .info {
-        margin: 12px;
-        font-size: 16px;
+    .info h3 {
+        font-style: 59px;
+        margin-bottom: 0;
     }
 
-    .game a {
-        color: #00bd71 !important;
-        text-decoration: none
+    .rating {
+        margin-bottom: 0;
+        padding-left: 0;
+        list-style-type: none;
     }
-}
 </style>
 
-<div class="container">
+<div class="container mt-4">
     <div class="row">
         <div class="col-md-4">
-            <div class="game"> 
+            <div class="product">
                 <a href="/virus">
-                    <img src="/game icons/virus v2.png" alt="WTF">
-                    <hr/>
-                    <div class="info">
-                        <h2>Virus v2</h2>
-                        <hr/>
-                        <div><span>Захватывающий геймплей реалистичная графика</span></div>
+                    <div class="image">
+                        <img src="/site/game icons/virus v2.png" alt="">
+                    </div>
+
+                    <div>
+                        <hr>
+                        <div class="center">
+                            <h3>Virus v3</h3>
+                        </div>
+                        <hr>
+                        <small>"Addictive gameplay realistic graphics and all this is not in this game"</small>
                     </div>
                 </a>
             </div>

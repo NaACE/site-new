@@ -1,0 +1,36 @@
+.post {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+  border: 0.1pc solid gray;
+  background-color: snow;
+  margin-bottom: 40px;
+  border-radius: 5px;
+  padding: 16px;
+  width: 100%;
+}
+
+
+.info {
+  justify-content: space-between;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: inherit;
+  display: flex;
+  padding: 8px;
+}
+.info img {
+  border-radius: 100px;
+  width: 50px;
+}
+.info span {
+  padding-left: 14px;
+  font-size: 21px;
+}
+
+
+.message {
+  font-size: 18px;
+  padding: 8px;
+}
+.message li {
+  padding-top: 8px;
+}

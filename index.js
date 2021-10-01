@@ -1,17 +1,16 @@
 const express = require('express');
-//const mongoose = require('mongoose');
+// mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
 const siteRoutes = require('./routes/main');
 var session = require('express-session');
 const cookieParser = require('cookie-parser');
 //const db = require('./db');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
+
 const app = express();
-const hbs = exphbs.create({
-    defaultLayout: 'main',
-    extname: 'hbs'
-});
+const hbs = exphbs.create({ defaultLayout: 'main', extname: 'hbs' });
+
 app.use(cookieParser());
 
 app.engine('hbs', hbs.engine);
@@ -29,10 +28,18 @@ app.use(session({
 
 app.use(siteRoutes);
 
+
+
+
+//mongoose.connect('mongodb+srv://admin:admin@cluster0.k9a0j.mongodb.net?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+//    .then(() => console.log('Db connected'))
+//    .catch(err => console.log(err));
+
+
 async function start() {
     app.listen(PORT, () => {
-        //console.log("Site");
-    });
+        console.log('Server has been started...');
+    })
 }
 
 start();

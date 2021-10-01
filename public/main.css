@@ -1,78 +1,180 @@
 body {
-    background-image: url('/wallpaper.png');
-    background-size: 400px;
+    background-image: url(/site/wallpaper/main.png);
+    font-family: Mali;
+  
     position: relative;
-	font-family: asinastra,'Noto Sans', sans-serif;
-	font-size: 18px;
-	line-height: 1.4;
-	min-width: 320px;
-	overflow-x: hidden;
-	height: auto;
-}
-
-.navbar {
-    background-color: #292929;
-    background-size: 120px;
+    line-height: 1.4;
+    color: #000;
+    min-width: 320px;
+    overflow-x: hidden;
+    height: auto;
+  }
+  
+  
+  
+  /**/
+  .popup-fade {
+    display: none;
+  }
+  
+  .popup-fade:before {
+    content: '';
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
     width: 100%;
-    height: 55px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
-    color: rgb(242, 243, 244);
-    margin-bottom: 32px;
-}
-
-.navbar .container {
-    height: inherit;
-    display: flex;
+    height: 100%;
+    opacity: 0.7;
+    z-index: 9999;
+  }
+  
+  .popup {
+    position: fixed;
+  
+    top: 20%;
+    left: 50%;
+    padding: 20px;
+    margin-left: -200px;
+    background: #fff;
+    border: 1px solid orange;
+    border-radius: 4px;
+    z-index: 99999;
+    opacity: 1;
+  }
+  
+  .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .popup a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  
+  .popup form {
+    background: white;
+    float: left;
+    width: calc(100% - 240px);
+    padding: 30px;
+    border-radius: 0 20px 20px 0;
+    color: #7b7b7b;
+  }
+  
+  .popup form div {
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  .popup h1 {
+    font-size: 24px;
+    font-weight: 400;
+    position: relative;
+    margin-top: 50px;
+    margin: 0;
+  }
+  
+  .popup label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .navbar {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .5);
+    background-color: #292929;
+    height: 60px;
+    width: 100%;
+  }
+  
+  .navbar .container {
     justify-content: space-between;
     align-items: center;
-}
-
-.navbar-menu {
+    height: inherit;
+    display: flex;
+  }
+  
+  .navbar-menu {
     list-style-type: none;
-    padding-left: 0;
     margin-bottom: 0;
-}
-
-.navbar-menu li {
+    padding-left: 0;
+    margin: 0;
+  }
+  
+  .navbar-menu li {
     display: inline-block;
-}
-
-.navbar-menu li a {
+  }
+  
+  .navbar-menu li a {
     display: inline-block;
-    color: rgb(242, 243, 244);
-    opacity: 0.9;
+    color: #fff;
+    opacity: 0.6;
     text-decoration: none;
-    padding: 10px;
     font-size: 20px;
-    transition: all .6s ease-in-out;
-    font-style: italic;
-}
-
-.navbar-wrap {
+    padding: 10px;
+    transition: all .07s ease-in-out;
+  }
+  
+  .navbar-menu li a:hover {
+    color: greenyellow;
+    opacity: 1;
+  }
+  
+  .navbar-wrap {
     display: flex;
     flex-flow: row nowrap;
-}
-
-.navbar-brand {
-    font-weight: 700;
-    font-size: 40px;
-    text-decoration: none;
-    color: rgb(242, 243, 244);
-}
-
-.navbar-brand:hover {
-    color: greenyellow;
-}
-
-.navbar-menu a:hover {
-    color: #f44355;
-}
-
-p.yes:after { content: '\0xE2 0x9B 0xA7'; }
-
-.pentagram {
-    margin: 0;
-    color: red;
-    font-weight: bold;
-    font-size: 38px;
-}
+  }
+  
+  
+  
+  
+  
+  
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  
+  /* Изменить цвет фона кнопок при наведении */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Создать активный / текущий класс tablink */
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+  
+  .tabcontent {
+    animation: fadeEffect 1s; /* Эффект затухания занимает 1 секунду */
+  }
+  
+  /* Перейти от нуля до полной непрозрачности */
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }

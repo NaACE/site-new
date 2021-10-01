@@ -1,11 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>♡ JavaScript</title>
+    <meta charset="UTF-8">
 
     <!-- Bootstrap reboot (для сброса стилей) -->
     <link rel="stylesheet" href="/bootstrap-reboot.min.css">
@@ -18,8 +15,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@1,700&display=swap" rel="stylesheet">
+
     <!-- Стили сайта -->
     <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/index.css">
 </head>
 
 <body>
@@ -27,23 +29,19 @@
         <div class="container">
             <div class="left_menu">
                 <ul class="navbar-menu">
-                    <li><a href="/">Главная</a></li></li>
-                    <li><a href="/games">Игры</a></li></li>
-                    <li><a href="#">Команда</a></li></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/games">Games</a></li>
+                    <li><a href="/top">Top players</a></li>
                 </ul>
             </div>
 
             <div class="navbar-wrap">
                 <ul class="navbar-menu">
-                    <li><a href="/top">Топ игроков</a></li>
-                    <li>
-                        <a href="/identification">
-                            <p class="pentagram">⛧</p>
-                        </a>
-                    </li>
+                    <li><a href="#">Sign In</a></li>
+                    <li><a href="#">Register</a></li>
                     {{#if name}}
-                        <li><a>Hello {{{name}}}</a></li>
-                        <li><a href="/logout">Выход</a></li>
+                    <li><a>Hello {{{name}}}</a></li>
+                    <li><a href="/logout">Выход</a></li>
                     {{/if}}
                 </ul>
             </div>
