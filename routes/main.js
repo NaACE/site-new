@@ -53,6 +53,7 @@ router.get('/top', (req, res) => {
     res.render('top');
 });
 
+// none
 router.get('/identification', (req, res) => {
     res.render('identification', {
         layout: false
@@ -63,6 +64,10 @@ router.get('/virus', (req, res) => {
     res.render('virus');
 });
 
+router.post('/sign_in', express.json(), (req, res) => {
+    console.log("/sign-in");
+    
+});
 
 router.post('/registration', express.json(), (req, res) => {
     db.registration(req.body, (err, r) => {
