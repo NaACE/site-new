@@ -1,21 +1,24 @@
-const { MongoClient, ObjectId } = require('mongodb');
-const uri = "mongodb+srv://admin:admin@cluster0.k9a0j.mongodb.net?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const mongo = require('mongodb').MongoClient;
 
-console.log("wazza!!")
-
-client.connect(function(err, c) {
-  const db = client.db("games");
-  db.command({ping: 1}, function(err, result){
-    if(!err){
-        console.log("Подключение с сервером успешно установлено");
-        console.log(result);
-    }
-    // Закрываем подключение
-    client.close();
-    console.log("Подключение закрыто");
-  })
+mongo.connect((err, c) => {
+  //const collection = c.db("games").collection("users");
+  // perform actions on the collection object
+  if (err) {
+    console.log(err);
+    throw err;
+  }
+  console.log("conn");
+  c.close();
 });
+
+const uri = "mongodb+srv://admin:admin@cluster0.k9a0j.mongodb.net?retryWrites=true&w=majority";
+
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+
 
 module.exports = {
     client: client,
