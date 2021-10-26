@@ -1,3 +1,17 @@
+Запуск приложения
+    1) в терминале вводим 'npm install'
+    2) дальше вводим 'npm run dev'
 
+Для базы данных я использую xampp
 
-npm run dev
+CREATE TABLE `users` (
+  `id` int(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+);
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'test1', 'test1'),
+(2, 'test2', 'tesе2'),
+(3, 'test3', 'test3')
+COMMIT;
