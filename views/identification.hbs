@@ -221,16 +221,17 @@
 <div class="container">
   <input id="signin" type="radio" name="tab" checked="checked" />
   <input id="register" type="radio" name="tab" />
+
   <div class="pages">
     <div class="page">
 
       <div class="input">
         <div class="title">USERNAME</div>
-        <input class="text" type="text" name="user_name" id="user_name" />
+        <input class="text" type="text" name="user_name" id="user_name" value="test1" />
       </div>
       <div class="input">
         <div class="title">PASSWORD</div>
-        <input class="text" type="password" name="password" id="password" />
+        <input class="text" type="password" name="password" id="password" value="test1" />
       </div>
       <div class="input">
         <input type="submit" value="SING IN" id="sign_in" />
@@ -274,13 +275,15 @@
   const password = document.getElementById('password');
 
   sign_in.addEventListener('click', () => {
-    const user = {
-      user_name: user_name.value,
-      password: password.value
-    }
-
-    (async () => {
-
-    }) ();
+    const user = { user_name: user_name.value, password: password.value }
+    fetch('/sign_in', { method: 'POST', headers: { "Content-Type": 'application/json' }, body: JSON.stringify(user) })
+      .then(response => response.json())
+      .then(json => {
+        if (json.error) {
+          alert("Error registration");
+        } else {
+          alert("yes");
+        }
+      });
   });
 </script>

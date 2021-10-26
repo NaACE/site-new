@@ -1,19 +1,10 @@
 const { Router } = require('express');
 const router = Router();
-//const db = require('../db');
+const db = require('../mysql');
 const ObjecId = require('mongodb').ObjectId;
 const express = require("express");
 
-// router.use(function (req, res, next) {
-//     if (!req.session.user) {
-//         console.log("Init session");
-//         req.session.user = {}
-//     }
-
-//     next();
-// });
-
-router.use(function (req, res, next) {
+router.use(function (req, res, next) { // Сохранение в cooki данных 
     if (req.cookies['user']) {
         // 1. Пользователя в сесси нет - стучимся в бд и вытягиваем пользователя, добавляем в сессию
         // 2. Пользователь в сессии - ничего не делаем
@@ -35,39 +26,45 @@ router.use(function (req, res, next) {
     }
 });
 
-router.get('/', (req, res) => {
+/* Страницы */
+router.get('/', (req, res) => { // Домашняя 
     console.log(req.session);
-
-    //res.render('home', {
-    //    name: req.session.user ? .username
-    //});
-
     res.render('home');
 });
-
-router.get('/games', (req, res) => {
+router.get('/games', (req, res) => { // Все игры 
     res.render('games');
 });
-
-router.get('/top', (req, res) => {
+router.get('/top', (req, res) => { // Топ игроков 
     res.render('top');
 });
-
-// none
-router.get('/identification', (req, res) => {
-    res.render('identification', {
-        layout: false
-    });
-});
-
-router.get('/virus', (req, res) => {
+router.get('/virus', (req, res) => { // Единственная игра
     res.render('virus');
 });
-
-router.post('/sign_in', express.json(), (req, res) => {
-    console.log("/sign-in");
-    
+router.get('/cabinet', (req, res) => { // Личный кабинет игрока 
+    res.render('cabinet');
 });
+router.get('/identification', (req, res) => { // Вход и регистрация
+    res.render('identification', { layout: false });
+});
+
+/* Запросы со страницы identification ( !!! Надо по удалять лишнее!!! ) */
+router.post('/sign_in', express.json(), (req, res) => {
+    db.sign_in(req.body, (err, r) => {
+        if(err) {
+            res.send({ error: err });
+            return;
+        } else {
+            console.log(r);
+            console.log(r.id);
+            /*res.cookie('user', id, {
+                maxAge: 1000 * 60 * 60 * 24 * 7 * 4
+            });
+            console.log("add res.cookie");*/
+        }
+    })
+});
+///////////////////////////////////////////////////////////
+
 
 router.post('/registration', express.json(), (req, res) => {
     db.registration(req.body, (err, r) => {
@@ -82,7 +79,6 @@ router.post('/registration', express.json(), (req, res) => {
         });
     });
 });
-
 router.get('/logout', (req, res) => {
     if (req.session.user) {
         req.session.user = undefined;
@@ -94,7 +90,6 @@ router.get('/logout', (req, res) => {
     }
     res.redirect('/');
 });
-
 router.post('/login', express.json(), (req, res) => {
     console.log('login')
     db.login(req.body, (err, r) => {

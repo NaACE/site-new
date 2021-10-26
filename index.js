@@ -5,9 +5,9 @@ const siteRoutes = require('./routes/main');
 var session = require('express-session');
 const cookieParser = require('cookie-parser');
 
-require('./db');
+require('./mysql');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 const hbs = exphbs.create({ defaultLayout: 'main', extname: 'hbs' });
