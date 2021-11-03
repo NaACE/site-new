@@ -10,7 +10,10 @@ require('./mysql');
 const PORT = process.env.PORT || 3001;
 
 const app = express();
-const hbs = exphbs.create({ defaultLayout: 'main', extname: 'hbs' });
+const hbs = exphbs.create({
+    defaultLayout: 'main',
+    extname: 'hbs'
+});
 
 app.use(cookieParser());
 
@@ -20,7 +23,11 @@ app.set('views', 'views');
 
 app.use(express.static('public'));
 
-app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: true, }));
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+}));
 
 app.use(siteRoutes);
 
