@@ -242,14 +242,14 @@
     <div class="page signup">
       <div class="input">
         <div class="title">USERNAME</div>
-        <input class="text" type="text" placeholder="" name="user-name-1" id="user-name-1" />
+        <input class="text" type="text" placeholder="" name="user-name-1" id="user_name_1" value="test2" />
       </div>
       <div class="input">
         <div class="title">PASSWORD</div>
-        <input class="text" type="password" placeholder="" name="passsword-1" id="password-1" />
+        <input class="text" type="password" placeholder="" name="passsword-1" id="password_1" value="test2" />
       </div>
       <div class="input">
-        <input type="submit" value="SIGN ME UP!" id="sing-up" />
+        <input type="submit" value="SIGN ME UP!" id="login" />
       </div>
     </div>
 
@@ -263,9 +263,9 @@
 </div>
 
 <script>
-  var signin = document.querySelector('#signin')
-  var register = document.querySelector('#register')
-  setTimeout(function () { register.checked = true }, 1000)
+  var signin = document.querySelector('#sign_in')
+  var register_f = document.querySelector('#register')
+  setTimeout(function () { register_f.checked = true }, 1000)
   setTimeout(function () { signin.checked = true }, 1000);
 </script>
 
@@ -276,14 +276,51 @@
 
   sign_in.addEventListener('click', () => {
     const user = { user_name: user_name.value, password: password.value }
-    fetch('/sign_in', { method: 'POST', headers: { "Content-Type": 'application/json' }, body: JSON.stringify(user) })
+
+    fetch('/sign_in', {
+      method: 'POST',
+      headers: {
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
       .then(response => response.json())
       .then(json => {
         if (json.error) {
-          alert("Error registration");
+          alert("Error login");
         } else {
-          alert("yes");
+
+
+
+          window.location = '/';
         }
-      });
+      })
+  });
+</script>
+
+<script>
+  const login = document.getElementById('login');
+  const user_name_1 = document.getElementById('user_name_1');
+  const password_1 = document.getElementById('password_1');
+
+  login.addEventListener('click', () => {
+    const user = { user_name: user_name_1.value, password: password_1.value }
+    console.log(user);
+
+    fetch('/login', {
+      method: 'POST',
+      headers: {
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+      .then(response => response.json())
+      .then(json => {
+        if (json.error) {
+          alert("Error login");
+        } else {
+          window.location = '/';
+        }
+      })
   });
 </script>
