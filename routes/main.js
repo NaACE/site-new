@@ -3,6 +3,7 @@ const router = Router();
 const db = require('../mysql');
 const express = require("express");
 
+
 /*router.use(function (req, res, next) { // Сохранение в cooki данных 
     if (req.cookies['user']) {
         // 1. Пользователя в сесси нет - стучимся в бд и вытягиваем пользователя, добавляем в сессию
