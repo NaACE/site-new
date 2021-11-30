@@ -10,7 +10,8 @@
 
     <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@1,700&display=swap" rel="stylesheet">
@@ -36,6 +37,8 @@
                     <li><a href="/identification">Sign In</a></li>
                     <li><a href="/identification">Register</a></li>
 
+                    <div id="show"></div>
+
                     {{#if name}}
                     <li><a id="content">Hello {{{name}}}</a></li>
                     <li><a href="/logout">Выход</a></li>
@@ -45,6 +48,14 @@
         </div>
     </nav>
     {{{body}}}
+
+    
+    <!-- React -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Загрузка нашего компонента React. -->
+    <script src="react.js"></script>
 </body>
 
 </html>
