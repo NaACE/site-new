@@ -28,7 +28,7 @@ const express = require("express");
 
 /* Страницы */
 router.get('/', (req, res) => { // Домашняя 
-    console.log(req.session);
+    //console.log(req.session);
     res.render('home');
 });
 router.get('/games', (req, res) => { // Все игры 
@@ -77,6 +77,13 @@ router.post('/login', express.json(), (req, res) => {
         }
 
     });
+
+    
+    console.log('Login')
+});
+
+router.get('/logout', (req, res) => {
+    res.redirect('/');
 });
 
 

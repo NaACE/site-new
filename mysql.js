@@ -1,18 +1,17 @@
-const connections = require('mongoose');
 const mysql = require('mysql');
-
 
 module.exports = {
     sign_in: (user, callback) => {
+        
         var db = new DB('select *  from `users` where `username` = "' + user.user_name + '" and `password` = "' + user.password + '"');
         callback(db.run()); // db.run()
     },
     login: (user, callback) => { /// ! ДОБАВИТЬ ПРОВЕРКУ НА ПОВТОРЫ
         var db = new DB("INSERT INTO users(id, username, password) VALUES( 2, '" + user.user_name + "', '" + user.password + "' )");
+        console.log(db.run());
         callback(db.run()); // db.run()
     }
 }
-
 
 class DB {
     constructor(select) {
@@ -53,6 +52,7 @@ class DB {
                 console.error('Ошибка: ' + err.message);
             } else {
                 connection.query(this.select, function (err, results) {
+                    console.log(results);
                     if (err) {
                         console.log(err);
                     } else {
